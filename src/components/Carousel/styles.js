@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 export const Title = styled.h3`
   font-style: normal;
@@ -33,19 +33,44 @@ export const ExtraLink = styled.a`
   }
 `;
 
+ const keyFrameExampleOne = keyframes`
+  0% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: -800px `;
+
 export const VideoCardList = styled.ul`
   margin: 0;
   padding-left: 0;
-  padding-bottom: 32px;
+ 
   list-style: none;
   display: flex;
-  overflow-x: auto;
+ 
   flex-direction: row;
+  overflow: hidden;
+  margin: 32px auto;
   
-  li {
-    margin-right: 16px;
+  margin-right: 16px;
+
+  &:hover{
+    animation-name: ${keyFrameExampleOne};
+      animation-duration: 4s;
+      animation-iteration-count: infinite;
+      animation-direction: left;
+      animation-timing-function: linear;
   }
+       
+
+  li {
+   
+    	
+  }
+
+  
 `;
+
+
 
 export const VideoCardGroupContainer = styled.section`
   color: white;
