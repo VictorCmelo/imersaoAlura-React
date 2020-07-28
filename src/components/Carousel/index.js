@@ -6,6 +6,7 @@ import Slider, { SliderItem } from './components/Slider';
 
 function handleMouse(video) {
   console.log(video);
+ 
 }
 
 function Corousel({

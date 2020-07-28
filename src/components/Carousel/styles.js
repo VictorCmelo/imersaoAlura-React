@@ -31,14 +31,10 @@ export const ExtraLink = styled.a`
     margin-bottom: 16px;
     margin-left: 0;
   }
+  
 `;
 
- const keyFrameExampleOne = keyframes`
-  0% {
-    margin-left: 0px;
-  }
-  100% {
-    margin-left: -800px `;
+
 
 export const VideoCardList = styled.ul`
   margin: 0;
@@ -54,16 +50,16 @@ export const VideoCardList = styled.ul`
   margin-right: 16px;
 
   &:hover{
-    animation-name: ${keyFrameExampleOne};
-      animation-duration: 4s;
-      animation-iteration-count: infinite;
-      animation-direction: left;
-      animation-timing-function: linear;
+   display: block
   }
        
 
+
   li {
    
+    
+  
+    
     	
   }
 
