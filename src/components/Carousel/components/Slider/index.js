@@ -1,6 +1,37 @@
 import React from 'react';
 import SlickSlider from 'react-slick';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style}}
+      onClick={onClick}
+    />
+  );
+}
+
+
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style}}
+      onClick={onClick}
+      
+    />
+  );
+}
+
+const keyFrameRight = keyframes`
+  0% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: -800px `;
 
 const Container = styled.ul`
   padding: 0;
@@ -25,10 +56,21 @@ const Container = styled.ul`
   .slick-next {
     right: 16px;
   }
+
+  &:hover{
+    animation-delay:2s;
+    animation-name: ${keyFrameRight} ;
+      animation-duration: 10s;
+      animation-iteration-count: infinite;
+      animation-direction: left;
+      animation-timing-function: linear;
+  }
 `;
 
 export const SliderItem = styled.li`
   margin-right: 16px;
+
+ 
   img {
     margin: 16px;
     width: 298px;
@@ -42,11 +84,15 @@ const Slider = ({ children }) => (
   <Container>
     <SlickSlider {...{
       dots: false,
-      infinite: false,
+      infinite: true,
       speed: 300,
       centerMode: false,
       variableWidth: true,
       adaptiveHeight: true,
+      focusOnSelect: true,
+      nextArrow: <SampleNextArrow />,
+      prevArrow: <SamplePrevArrow />
+      
     }}
     >
       {children}
