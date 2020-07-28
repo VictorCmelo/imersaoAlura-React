@@ -14,6 +14,7 @@ function SampleNextArrow(props) {
 }
 
 
+
 function SamplePrevArrow(props) {
   const { className, style, onClick } = props;
   return (
@@ -26,12 +27,7 @@ function SamplePrevArrow(props) {
   );
 }
 
-const keyFrameRight = keyframes`
-  0% {
-    margin-left: 0px;
-  }
-  100% {
-    margin-left: -800px `;
+
 
 const Container = styled.ul`
   padding: 0;
@@ -57,14 +53,8 @@ const Container = styled.ul`
     right: 16px;
   }
 
-  &:hover{
-    animation-delay:2s;
-    animation-name: ${keyFrameRight} ;
-      animation-duration: 10s;
-      animation-iteration-count: infinite;
-      animation-direction: left;
-      animation-timing-function: linear;
-  }
+ 
+  
 `;
 
 export const SliderItem = styled.li`
