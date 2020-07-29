@@ -1,13 +1,9 @@
 import React from 'react';
 import { VideoCardGroupContainer, VideoCardList, Title, ExtraLink } from './styles';
-import VideoCard from './components/VideoCard';
+import VideoCard, { Info } from './components/VideoCard';
 import Slider, { SliderItem } from './components/Slider';
 
 
-function handleMouse(video) {
-  console.log(video);
- 
-}
 
 function Corousel({
   ignoreFirstVideo,
@@ -38,7 +34,7 @@ function Corousel({
           }
 
           return (
-            <SliderItem key={video.titulo} onMouseEnter={() => handleMouse(video)}>
+            <SliderItem key={video.titulo}>
               <VideoCard
                 videoTitle={video.titulo}
                 videoURL={video.url}

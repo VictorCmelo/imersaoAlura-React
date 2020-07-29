@@ -1,5 +1,5 @@
 import React from 'react';
-import { VideoCardContainer } from './styles';
+import { VideoCardContainer, Info } from './styles';
 
 function getYouTubeId(youtubeURL) {
   return youtubeURL
@@ -19,7 +19,12 @@ function VideoCard({ videoTitle, videoURL, categoryColor }) {
       target="_blank"
       style={{ borderColor: categoryColor || 'red' }}
       title={videoTitle}
-    />
+    >
+      <Info>
+       <p>{videoTitle}</p>
+      </Info>
+
+    </VideoCardContainer>
   );
 }
 
