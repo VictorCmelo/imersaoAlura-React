@@ -1,6 +1,6 @@
 import React from 'react';
 import SlickSlider from 'react-slick';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
