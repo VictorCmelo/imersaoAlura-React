@@ -41,7 +41,7 @@ font-family: inherit;
     top: 20px;
   }
 
-  &:focus {
+  &:focus::not([type="color"]) {
     ~ ${Label}{
     position: absolute;
     top: 0;
@@ -52,9 +52,9 @@ font-family: inherit;
     font-weight:700; 
     }
 
-    padding-bottom: 6px;  
-   font-weight: 700;
-    border-width: 3px;
+  padding-bottom: 6px;  
+  font-weight: 700;
+  border-width: 3px;
   border-image: linear-gradient(to right, var(--grayLight), var(--grayMedium));
   border-image-slice: 1;
   }
