@@ -6,7 +6,7 @@ import Button from '../../../components/Button';
 
 function CadastroCategoria() {
 
-  const valoresIniciais = { 
+  const valoresIniciais = {
     nome: '',
     descricao: '',
     cor: '',
@@ -22,11 +22,23 @@ function CadastroCategoria() {
     })
   }
 
-  
+  function handleChange(event) {
+    handleSetValue(
+      event.target.getAttribute('name'),
+      event.target.value
+    );
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
 
-    setCategorias([...categorias, values]);
+    setCategorias([
+      ...categorias,
+      values
+    ]);
+
+
+
     setValues(valoresIniciais);
   }
 
@@ -34,60 +46,71 @@ function CadastroCategoria() {
     <PageDefault>
       <h1>Cadastro de Categoria: {values.nome}</h1>
 
-      <form onSubmit={(event) => handleSubmit(event)} style={{alignContent: 'center'}}>
-      
-      <FormField  
-        label="Nome da Categoria"
-        value={values.nome}
-        onChange={(event) => handleSetValue(event.target.getAttribute('name'), event.target.value)}
-        name="nome"
-        placeholder="Nome da Categoria"
-        />
- 
-        <FormField 
-        label="Descrição" 
-        value={values.descricao}
-        onChange={(event) => handleSetValue(event.target.getAttribute('name'), event.target.value)}
-        nome="descricao"
-        type="textarea"
-        placeholder="Descrição"
-        />
+      <div style={{ display: 'flex', alignItems: 'space-between', justifyContent: 'space-between'}}>
+        <form onSubmit={(event) => handleSubmit(event)} style={{ alignContent: 'center', flex: '1' }}>
 
-        <FormField 
-        label="Cor" 
-        value={values.cor}
-        onChange={(event) => handleSetValue(event.target.getAttribute('name'), event.target.value)}
-        type="color"
-        name="cor"
-        placeholder="cor"
-        /> 
+          <FormField
+            label="Nome da Categoria"
+            value={values.nome}
+            onChange={handleChange}
+            name="nome"
+            placeholder="Nome da Categoria"
+            required={true}
+          />
 
-   
-      <div style={{marginTop: '50px', width:'80%', display: 'flex', alignItems: 'space-between', justifyContent: 'space-between' }}>
-      
+          <FormField
+            label="Descrição"
+            value={values.descricao}
+            name="descricao"
+            type="text"
+            placeholder="Descrição"
+            onChange={handleChange}
+            required={true}
+          />
 
-        <Link to="/">
-        Voltar para Home
+          <FormField
+            label="Cor"
+            value={values.cor}
+            type="color"
+            name="cor"
+            placeholder="cor"
+            onChange={handleChange}
+            required={true}
+          />
+
+
+          <div style={{ marginTop: '50px', width: '90%', display: 'flex', alignItems: 'space-between', justifyContent: 'space-between' }}>
+
+
+            <Link to="/">
+              Voltar para Home
       </Link>
 
-      <Button >
-          Cadastrar
+            <Button >
+              Cadastrar
         </Button>
+          </div>
+
+        </form>
+
+        <table style={{ marginTop: "20px" }} width="50%" border="1px">
+          <tr>
+            <th style={{ width: '30%' }}>Nome</th>
+            <th style={{ width: '50%' }}>Descrição</th>
+            <th style={{ width: '20%' }}>Cor</th>
+          </tr>
+          {categorias.map((categoria, index) => {
+            return (
+              <tr key={index}>
+                <td>{categoria.nome}</td>
+                <td>{categoria.descricao}</td>
+                <td>{categoria.cor}</td>
+              </tr>
+            )
+          })}
+        </table>
       </div>
-       
-      </form>
 
-      <ul>
-        {categorias.map((categoria, index) => {
-          return (
-            <li key={index}>
-              {categoria.nome}
-            </li>
-          )
-        })}
-      </ul>
-
-    
     </PageDefault>
   )
 }
