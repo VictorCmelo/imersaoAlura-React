@@ -1,35 +1,22 @@
 import React from 'react'
 
-function FormField({ value, onChange, type = 'text', name, label }) {
+import { Label, Container, Input } from './styles';
 
-  if (type == "textarea") {
-
-    return (
-      <div>
-        <label>
-          {label}
-          <textarea
-            name={name}
-            value={value}
-            onChange={onChange}
-          />
-        </label>
-      </div>
-    )
-  }
+function FormField({ value, onChange, type = 'text', name, label, placeholder }) {
 
   return (
-    <div>
-      <label>
+    <Container>
+      <Input
+        type={type}
+        name={name}
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
+      />
+      <Label for={label}>
         {label}
-        <input
-          type={type}
-          name={name}
-          value={value}
-          onChange={onChange}
-        />
-      </label>
-    </div>
+      </Label>
+    </Container>
   )
 }
 
