@@ -41,7 +41,7 @@ font-family: inherit;
     top: 20px;
   }
 
-  &:focus::not([type="color"]) {
+  &:focus {
     ~ ${Label}{
     position: absolute;
     top: 0;
