@@ -14,6 +14,19 @@ function getAllWithVideos() {
 
 }
 
+function getAll() {
+  return fetch(`${URL_CATEGORIES}`)
+    .then(async (respostaDoServer) => {
+      if (respostaDoServer.ok) {
+        return  await respostaDoServer.json();
+
+      }
+      throw new Error('Não foi possível pegar os dados');
+    })
+
+}
+
 export default {
   getAllWithVideos,
+  getAll,
 }
