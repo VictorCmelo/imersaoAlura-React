@@ -10,7 +10,7 @@ import categoriasRepository from '../../../repositories/categorias';
 function CadastroVideo() {
   const history = useHistory();
   const [categorias, setCategorias] = useState([]);
-  const categoryTitles = categorias.map(({titulo}) => titulo );
+  const categoryTitles = categorias.map(({ titulo }) => titulo);
   const { handleChange, values } = useForm({
     titulo: '',
     url: '',
@@ -19,11 +19,11 @@ function CadastroVideo() {
 
   useEffect(() => {
     categoriasRepository
-    .getAll()
-    .then((categoriasFromServer) => {
+      .getAll()
+      .then((categoriasFromServer) => {
 
-      setCategorias(categoriasFromServer);
-    })
+        setCategorias(categoriasFromServer);
+      })
   }, [])
 
 
@@ -75,17 +75,22 @@ function CadastroVideo() {
           name="categoria"
           placeholder="Categoria"
           required={true}
-          suggestions= {categoryTitles}
+          suggestions={categoryTitles}
         />
 
+        <div style={{ marginTop: '50px', width: '90%', display: 'flex', alignItems: 'space-between', justifyContent: 'space-between' }}>
 
-        <Button type="submit">
-          Cadastrar
+
+          <Button type="submit">
+            Cadastrar
       </Button>
-      </form>
-      <Link to="/cadastro/categoria">
-        Cadastrar Categoria
+
+          <Link to="/cadastro/categoria">
+            Cadastrar Categoria
       </Link>
+        </div>
+      </form>
+
     </PageDefault>
   )
 }
